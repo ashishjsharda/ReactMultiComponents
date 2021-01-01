@@ -1,17 +1,37 @@
-import React from 'react';
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+const tasks =["Get Up","Get Ready","Leave for work"]
+class Title extends Component{
+  render(){
+    return(<h1> List of Tasks</h1>)
+  }
+}
+
+class List extends Component{
+  render(){
+    return(
+      <ol>
+        {tasks.map((task, index) =><li key={index}> {task} </li>)}
+      </ol>
+    )
+  }
+}
+
+class Main extends Component{
+  render(){
+    return(
+      <div>
+        <Title />,
+        <List />,
+        <List />,
+        <List />
+      </div>
+    )
+  }
+}
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Main />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
